@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':@lightbase_react-native-orientation'
+project(':@lightbase_react-native-orientation').projectDir = new File(rootProject.projectDir, '../node_modules/@lightbase/react-native-orientation/android')
+
+include ':app'

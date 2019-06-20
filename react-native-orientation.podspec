@@ -1,22 +1,23 @@
-require 'json'
+require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name           = package['name']
-  s.version        = package['version']
-  s.summary        = package['description']
-  s.description    = package['description']
-  s.license        = package['license']
-  s.author         = package['author']
-  s.homepage       = package['homepage']
-  s.source         = { :git => 'https://github.com/yamill/react-native-orientation.git', :tag => s.version }
+  s.name         = "react-native-orientation"
+  s.version      = package["version"]
+  s.summary      = package["description"]
+  s.description  = <<-DESC
+                  react-native-orientation
+                   DESC
+  s.homepage     = "https://github.com/lightbasenl/react-native-orientation"
+  s.license      = "MIT"
+  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.author       = { "author" => "rody@lightbase.nl" }
+  s.platform     = :ios, "9.0"
+  s.source       = { :git => "https://github.com/lightbase/react-native-orientation.git", :tag => "#{s.version}" }
 
-  s.requires_arc   = true
-  s.platform       = :ios, '7.0'
+  s.source_files = "ios/**/*.{h,m}"
+  s.requires_arc = true
 
-  s.preserve_paths = 'README.md', 'package.json', 'index.js'
-  s.source_files   = 'iOS/RCTOrientation/*.{h,m}'
-
-  s.dependency 'React'
+  s.dependency "React"
 end

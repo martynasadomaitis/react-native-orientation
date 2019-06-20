@@ -1,0 +1,11 @@
+example
+tsconfig.json
+ios/build
+android/build
+android/.gradle
+.idea
+.DS_Store
+.eslintrc
+.gitattributes
+.prettierrc.js
+scripts
