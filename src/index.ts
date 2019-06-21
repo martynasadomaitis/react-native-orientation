@@ -100,9 +100,12 @@ export default class Orientation {
   static addSpecificOrientationListener = (callback: CallbackFunction) => {
     const key = Orientation.getKey(callback);
 
-    Orientation.listeners[key] = DeviceEventEmitter.addListener(specificOrientationDidChangeEvent, body => {
-      callback(body.specificOrientation);
-    });
+    Orientation.listeners[key] = DeviceEventEmitter.addListener(
+      specificOrientationDidChangeEvent,
+      (body: { specificOrientation: OrientationType }) => {
+        callback(body.specificOrientation);
+      },
+    );
   };
 
   static removeSpecificOrientationListener = (callback: CallbackFunction) => {
