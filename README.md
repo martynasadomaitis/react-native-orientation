@@ -2,6 +2,11 @@
 
 Listen to device orientation changes in React Native applications and programmatically set preferred orientation on a per screen basis. Works on both Android and iOS.
 
+**Note:**
+This a fork of https://github.com/yamill/react-native-orientation with the intention of keeping up with regular maintenance.
+
+We will be keeping the 3.\*.\* branch backwards compatible with the most recent version of the original library. You should be able to easily migrate, without touching much of your existing code.
+
 ## Installing
 
 ```
@@ -134,7 +139,7 @@ export default class AppScreen extends Component {
     // beginning of the JS runtime.
 
     const initial = Orientation.getInitialOrientation();
-    if (initial === 'PORTRAIT') {
+    if (initial === Orientation.PORTRAIT) {
       // do something
     } else {
       // do something else
@@ -155,7 +160,7 @@ export default class AppScreen extends Component {
   },
 
   _orientationDidChange = (orientation) => {
-    if (orientation === 'LANDSCAPE') {
+    if (orientation === Orientation.LANDSCAPE) {
       // do something with landscape layout
     } else {
       // do something with portrait layout
@@ -163,7 +168,7 @@ export default class AppScreen extends Component {
   },
 
   componentWillUnmount() {
-    Orientation.getOrientation((err, orientation) => {
+    Orientation.getOrientation((error, orientation) => {
       console.log(`Current Device Orientation: ${orientation}`);
     });
 
@@ -189,10 +194,10 @@ addOrientationListener((orientation) => {});
 ```
 
 `orientation` will return one of the following values:
-- `LANDSCAPE`
-- `PORTRAIT`
-- `PORTRAITUPSIDEDOWN`
-- `UNKNOWN`
+- `"LANDSCAPE"` or `Orientation.LANDSCAPE`
+- `"PORTRAIT"` or `Orientation.PORTRAIT`
+- `"PORTRAITUPSIDEDOWN"` or `Orientation.PORTRAIT_UPSIDE_DOWN`
+- `"UNKNOWN"` or `Orientation.UNKNOWN`
 
 ```javascript
 removeOrientationListener((orientation) => {});
@@ -203,11 +208,11 @@ addSpecificOrientationListener((specificOrientation) => {});
 ```
 
 `specificOrientation` will return one of the following values:
-- `LANDSCAPE-LEFT`
-- `LANDSCAPE-RIGHT`
-- `PORTRAIT`
-- `PORTRAITUPSIDEDOWN`
-- `UNKNOWN`
+- `"LANDSCAPE-LEFT"` or `Orientation.LANDSCAPE_LEFT`
+- `"LANDSCAPE-RIGHT"` or `Orientation.LANDSCAPE_RIGHT`
+- `"PORTRAIT"` or `Orientation.PORTRAIT`
+- `"PORTRAITUPSIDEDOWN"` or `Orientation.PORTRAIT_UPSIDE_DOWN`
+- `"UNKNOWN"` or `Orientation.UNKNOWN`
 
 ```javascript
 removeSpecificOrientationListener((specificOrientation) => {});
@@ -220,5 +225,5 @@ removeSpecificOrientationListener((specificOrientation) => {});
 - `lockToLandscapeLeft()`
 - `lockToLandscapeRight()`
 - `unlockAllOrientations()`
-- `getOrientation((err, orientation) => {})`
-- `getSpecificOrientation((err, specificOrientation) => {})`
+- `getOrientation((error: string, orientation: OrientationType) => {})`
+- `getSpecificOrientation((error: string, specificOrientation: OrientationType) => {})`

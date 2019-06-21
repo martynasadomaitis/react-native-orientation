@@ -3,7 +3,13 @@ import cuid from "cuid";
 
 const OrientationModule = NativeModules.Orientation;
 
-export type OrientationType = "LANDSCAPE" | "PORTRAIT" | "PORTRAITUPSIDEDOWN" | "UNKNOWN";
+export type OrientationType =
+  | "LANDSCAPE"
+  | "LANDSCAPE-LEFT"
+  | "LANDSCAPE-RIGHT"
+  | "PORTRAIT"
+  | "PORTRAITUPSIDEDOWN"
+  | "UNKNOWN";
 
 export type ListenerFunction = (error: string, orientation: OrientationType) => void;
 
@@ -17,9 +23,16 @@ const orientationDidChangeEvent = "orientationDidChange";
 const specificOrientationDidChangeEvent = "specificOrientationDidChange";
 
 export default class Orientation {
-  static listeners: { [key: string]: EmitterSubscription } = {};
+  private static listeners: { [key: string]: EmitterSubscription } = {};
 
-  static getKey = (subject: EmitterSubscription | CallbackFunction) => {
+  static LANDSCAPE: OrientationType = "LANDSCAPE";
+  static LANDSCAPE_LEFT: OrientationType = "LANDSCAPE-LEFT";
+  static LANDSCAPE_RIGHT: OrientationType = "LANDSCAPE-RIGHT";
+  static PORTRAIT: OrientationType = "PORTRAIT";
+  static PORTRAIT_UPSIDE_DOWN: OrientationType = "PORTRAITUPSIDEDOWN";
+  static UNKNOWN: OrientationType = "UNKNOWN";
+
+  private static getKey = (subject: EmitterSubscription | CallbackFunction) => {
     if (!subject.key) {
       subject.key = cuid();
     }
