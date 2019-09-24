@@ -1,6 +1,6 @@
 {
   "name": "@lightbase/react-native-orientation",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Listen to device orientation changes in React Native applications and programmatically set preferred orientations on a per screen basis",
   "main": "dist/index.js",
   "scripts": {
