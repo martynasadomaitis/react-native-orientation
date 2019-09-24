@@ -52,13 +52,5 @@
   "bugs": {
     "url": "https://github.com/lightbasenl/react-native-orientation/issues"
   },
-  "homepage": "https://github.com/lightbasenl/react-native-orientation#readme",
-  "rnpm": {
-    "android": {
-      "packageInstance": "new OrientationPackage()"
-    },
-    "ios": {
-      "project": "ios/RCTOrientation.xcodeproj"
-    }
-  }
+  "homepage": "https://github.com/lightbasenl/react-native-orientation#readme"
 }
