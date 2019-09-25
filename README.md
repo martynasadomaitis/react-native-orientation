@@ -3,7 +3,7 @@
 Listen to device orientation changes in React Native applications and programmatically set preferred orientation on a per screen basis. Works on both Android and iOS.
 
 **Note:**
-This a fork of https://github.com/yamill/react-native-orientation with the intention of keeping up with regular maintenance.
+This a fork of https://github.com/yamill/react-native-orientation with the intention of keeping up with regular maintenance and has been re-written in Typescript.
 
 We will be keeping the 3.\*.\* branch backwards compatible with the most recent version of the original library. You should be able to easily migrate, without touching much of your existing code. [See the migration guide](https://github.com/lightbasenl/react-native-orientation/wiki/Migration-guide)
 
