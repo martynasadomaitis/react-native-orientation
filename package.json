@@ -1,6 +1,6 @@
 {
   "name": "@lightbase/react-native-orientation",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "description": "Listen to device orientation changes in React Native applications and programmatically set preferred orientations on a per screen basis",
   "main": "dist/index.js",
   "scripts": {
@@ -47,7 +47,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lightbasenl/react-native-orientation.git"
+    "url": "git+https://github.com/martynasadomaitis/react-native-orientation.git"
   },
   "bugs": {
     "url": "https://github.com/lightbasenl/react-native-orientation/issues"
