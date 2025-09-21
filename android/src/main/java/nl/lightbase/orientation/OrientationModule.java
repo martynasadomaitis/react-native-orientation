@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.util.Log;
@@ -151,7 +152,11 @@ public class OrientationModule extends ReactContextBaseJavaModule implements Lif
             return;
         }
 
-        activity.registerReceiver(receiver, new IntentFilter("onConfigurationChanged"));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            activity.registerReceiver(receiver, new IntentFilter("onConfigurationChanged"), Context.RECEIVER_EXPORTED);
+        } else {
+            activity.registerReceiver(receiver, new IntentFilter("onConfigurationChanged"));
+        }
     }
 
     @Override
